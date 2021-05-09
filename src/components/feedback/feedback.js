@@ -28,18 +28,22 @@ class Feedback extends React.Component {
 
   render() {
     const amountFeedback = this.countTotalFeedback();
+    const { good, neutral, bad } = this.state;
 
     return (
       <div>
         <Section title="Please leave feedback">
-          <FeedbackOptions onLeaveFeedback={this.increment} />
+          <FeedbackOptions
+            options={['good', 'neutral', 'bad']}
+            onLeaveFeedback={this.increment}
+          />
         </Section>
         {amountFeedback > 0 ? (
           <Section title="Statistics">
             <Statistics
-              good={this.state.good}
-              neutral={this.state.neutral}
-              bad={this.state.bad}
+              good={good}
+              neutral={neutral}
+              bad={bad}
               total={amountFeedback}
               positivePercentage={this.countPositiveFeedbackPercentage(
                 amountFeedback,

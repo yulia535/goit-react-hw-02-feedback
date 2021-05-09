@@ -1,4 +1,5 @@
 .buttonFeedback {
+  text-transform: capitalize;
   margin-right: 20px;
   background-color: white;
   padding: 10px;
